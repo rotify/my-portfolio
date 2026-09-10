@@ -1,0 +1,93 @@
+:root {
+    --bg: #0c0a08;
+    --bg-soft: #141210;
+    --ink: #f4efe6;
+    --ink-dim: #9a948a;
+    --ink-faint: #5a554d;
+    --gold: #d99a3f;
+    --gold-soft: #e6b56a;
+    --line: rgba(244, 239, 230, 0.1);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Manrope", system-ui, sans-serif;
+    --max: 1280px;
+    --pad: clamp(1.25rem, 4vw, 4rem);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--bg);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+}
+
+.serif {
+    font-family: var(--serif);
+}
+
+.italic {
+    font-style: italic;
+}
+
+.gold {
+    color: var(--gold);
+}
+
+.eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    font-weight: 500;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+}
