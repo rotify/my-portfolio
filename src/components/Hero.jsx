@@ -1,42 +1,22 @@
 import { profile } from "../data";
-
 export default function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="wrap">
-        <p className="eyebrow hero__eyebrow">
-          {profile.name} &mdash; Portfolio
-        </p>
-
-        <h1 className="hero__title serif">
-          Building the <span className="gold italic">web</span>,
-          <br />
-          one idea at a time.
+      <div className="hero__glow" aria-hidden="true" />
+      <div className="wrap hero__inner">
+        <span className="eyebrow hero__a" style={{"--i":0}}>Available for new work</span>
+        <h1 className="hero__title display hero__a" style={{"--i":1}}>
+          Building the <span className="grad-text">web</span>, one idea at a time.
         </h1>
-
-        <div className="hero__bottom">
-          <ul className="hero__meta">
-            {profile.available && (
-              <li><span className="dot" /> Available for new work</li>
-            )}
-            <li>Based in {profile.location}</li>
-            <li>{profile.degree}</li>
-          </ul>
-
-          <p className="hero__intro">
-            I&rsquo;m <strong>{profile.name}</strong> &mdash; {profile.intro}
-          </p>
+        <p className="hero__intro hero__a" style={{"--i":2}}>
+          I&rsquo;m <strong>{profile.name}</strong> — {profile.intro}
+        </p>
+        <div className="hero__actions hero__a" style={{"--i":3}}>
+          <a href="#work" className="btn btn--primary">View work</a>
+          <a href={`mailto:${profile.email}`} className="btn btn--ghost">Get in touch</a>
         </div>
-      </div>
-
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee__track">
-          {[...profile.marquee, ...profile.marquee].map((m, i) => (
-            <span key={i} className="serif">
-              {i % 2 ? <em className="gold italic">{m}</em> : m}
-              <i className="marquee__sep">&#8212;</i>
-            </span>
-          ))}
+        <div className="hero__meta hero__a" style={{"--i":4}}>
+          <span>{profile.location}</span><i /><span>{profile.degree}</span>
         </div>
       </div>
     </section>

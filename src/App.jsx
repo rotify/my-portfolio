@@ -11,14 +11,9 @@ export default function App() {
   useReveal()
   return (
     <>
-      <div className="grain" aria-hidden="true" />
       <Nav />
       <main>
-        <Hero />
-        <Work />
-        <About />
-        <Experience />
-        <Contact />
+        <Hero /><Work /><About /><Experience /><Contact />
       </main>
     </>
   )
